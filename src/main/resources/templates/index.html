@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawDiary</title>
+</head>
+<body>
+<h1>Welcome to PawDiary 🐾</h1>
+<p>A little diary for your cat.</p>
+
+<h2>My Cat</h2>
+<p>Name: <span th:text="${catName}">Benitto</span></p>
+<p>Birthday: 25 November 2024</p>
+<p>About: Loves sleeping and playing.</p>
+
+<h2>Edit your cat's name</h2>
+
+<form th:action="@{/cat/name}" method="post">
+    <label for="catName">Cat's name:</label>
+
+    <input
+            type="text"
+            id="catName"
+            name="catName"
+            th:value="${catName}"
+            maxlength="50"
+            required
+    >
+
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
